@@ -12,21 +12,23 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 {
     internal class Main
     {
+        private Conveyor _inputConveyor = new Conveyor();
+        private Conveyor[] _outputConveyors = { new Conveyor(), new Conveyor() };
         public void Setup()
         {
-			Splitter splitter = SetupNewSplitter();
+            _inputConveyor.AddToInventory(new Soda(100));
+            Splitter splitter = SetupNewSplitter();
+			Thread thread = new Thread(splitter.Sort);
+            thread.Start();
 
-
-//			splitter.AddToInventory(new Soda(100));
 //			Console.WriteLine(splitter.Inventory[0].Name);
-		}
+        }
 
 
         private Splitter SetupNewSplitter()
 		{
-			Conveyor inputConveyor = new Conveyor();
-			Conveyor[] outputConveyors = { new Conveyor(), new Conveyor() };
-			return new Splitter(inputConveyor, outputConveyors);
+
+			return new Splitter(_inputConveyor, _outputConveyors);
 		}
 
 	}

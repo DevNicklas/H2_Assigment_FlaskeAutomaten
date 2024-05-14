@@ -26,9 +26,12 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 			_inventory.Add(beverage);
 		}
 
-		public void RemoveFromInventory(Beverage beverage)
-		{
-			_inventory.Remove(beverage);
-		}
-	}
+        public Beverage RemoveFromInventory()
+        {
+            Beverage beverage = _inventory.FirstOrDefault();
+            if (beverage != null)
+                _inventory.Remove(beverage);
+            return beverage;
+        }
+    }
 }

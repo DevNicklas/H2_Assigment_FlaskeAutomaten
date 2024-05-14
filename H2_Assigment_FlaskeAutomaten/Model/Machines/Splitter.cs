@@ -12,6 +12,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
     {
         private Conveyor _inputConveyor;
         private Conveyor[] _outputConveyor = new Conveyor[2];
+        private readonly object _lockObject = new object(); // Lock object for thread safety
 
         public Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors)
         {
@@ -19,35 +20,36 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
             _outputConveyor = outputConveyors;
         }
 
-        public void Sort()
+        public void Start()
         {
             while (true)
             {
-                if (_inputConveyor.Inventory.Count > 0 && this.Inventory.Count < 10)
+                lock (_lockObject) // This is needed if there is more than 1 thread running the Splitter
                 {
-                    Beverage beverageToRemove = _inputConveyor.RemoveFromInventory();
-                    this.AddToInventory(beverageToRemove);
-                }
-				Thread.Sleep(1000);
-                Beverage beverageToSort = this.RemoveFromInventory();
-                if (beverageToSort != null)
-                {
-                    switch (beverageToSort)
+                    if (_inputConveyor.Inventory.Count > 0 && this.Inventory.Count < 10)
                     {
-                        case Soda soda:
-                            // Handle Soda type
-                            _outputConveyor[0].AddToInventory(soda);
-                            break;
-                        case Beer beer:
-                            // Handle Beer type
-                            _outputConveyor[1].AddToInventory(beer);
-                            break;
-                        default:
-                            // Handle other types or log an error
-                            break;
+                        this.AddToInventory(_inputConveyor.RemoveFromInventory());
                     }
+                    Thread.Sleep(500);
+                    Beverage beverage = this.RemoveFromInventory(); // Retrieve removed beverage
+                    Sort(beverage);
+                    Thread.Sleep(500);
                 }
-
+            }
+        }
+        private void Sort(Beverage beverage)
+        {
+            switch (beverage)
+            {
+                case Soda soda:
+                    _outputConveyor[0].AddToInventory(soda);
+                    break;
+                case Beer beer:
+                    _outputConveyor[1].AddToInventory(beer);
+                    break;
+                default:
+                    this.AddToInventory(beverage); // unknown beverage back to inventory
+                    break;
             }
         }
     }

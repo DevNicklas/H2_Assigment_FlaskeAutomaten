@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using H2_Assigment_FlaskeAutomaten.Controller;
 
 namespace H2_Assigment_FlaskeAutomaten
 {
@@ -14,7 +16,9 @@ namespace H2_Assigment_FlaskeAutomaten
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+			Main mainController = new Main();
+			mainController.Setup();
+			Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FlaskeautomatenForm());
         }

@@ -17,5 +17,10 @@ namespace H2_Assigment_FlaskeAutomaten
         {
             InitializeComponent();
         }
-    }
+
+		private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

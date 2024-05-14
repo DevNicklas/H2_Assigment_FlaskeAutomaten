@@ -1,6 +1,6 @@
 ﻿namespace H2_Assigment_FlaskeAutomaten
 {
-    partial class Form1
+    partial class FlaskeautomatenForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listOfBeverages = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // label1
@@ -44,7 +45,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 49);
+            this.button1.Location = new System.Drawing.Point(12, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 23);
             this.button1.TabIndex = 2;
@@ -53,33 +54,35 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 78);
+            this.button2.Location = new System.Drawing.Point(12, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "+1 Faxe Kondi";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // listOfBeverages
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(365, 110);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 97);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listOfBeverages.HideSelection = false;
+            this.listOfBeverages.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.listOfBeverages.Location = new System.Drawing.Point(12, 66);
+            this.listOfBeverages.Name = "listOfBeverages";
+            this.listOfBeverages.Size = new System.Drawing.Size(145, 372);
+            this.listOfBeverages.TabIndex = 4;
+            this.listOfBeverages.UseCompatibleStateImageBehavior = false;
             // 
-            // Form1
+            // FlaskeautomatenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listOfBeverages);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FlaskeautomatenForm";
+            this.Text = "Flaskeautomaten";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,7 +93,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listOfBeverages;
     }
 }
 

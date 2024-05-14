@@ -16,7 +16,7 @@ namespace H2_Assigment_FlaskeAutomaten
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FlaskeautomatenForm());
         }
     }
 }

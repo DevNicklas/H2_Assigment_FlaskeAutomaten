@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 {
-    internal class Conveyor
-    {
-    }
+	internal class Conveyor : Machine
+	{
+	}
 }

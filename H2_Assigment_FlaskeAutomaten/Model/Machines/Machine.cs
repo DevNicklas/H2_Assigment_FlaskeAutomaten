@@ -7,26 +7,28 @@ using System.Threading.Tasks;
 
 namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 {
-    public abstract class Machine
-    {
-        private Beverage[] _inventory;
+	public abstract class Machine
+	{
+		private List<Beverage> _inventory;
 
-        public Beverage[] Inventory
-        {
-            get
-            {
-                return _inventory;
-            }
-        }
+		public List<Beverage> Inventory
+		{
+			get { return _inventory; }
+		}
 
-        public void AddToInventory(Beverage beverage)
-        {
+		public Machine()
+		{
+			_inventory = new List<Beverage>();
+		}
 
-        }
+		public void AddToInventory(Beverage beverage)
+		{
+			_inventory.Add(beverage);
+		}
 
-        public void RemoveFromInventory(Beverage beverage)
-        {
-
-        }
-    }
+		public void RemoveFromInventory(Beverage beverage)
+		{
+			_inventory.Remove(beverage);
+		}
+	}
 }

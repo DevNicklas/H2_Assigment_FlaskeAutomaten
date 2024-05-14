@@ -2,11 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace H2_Assigment_FlaskeAutomaten.Controller
 {
     internal class Main
     {
+        public void Setup()
+        {
+            
+
+
+
+
+
+            
+        }
     }
 }

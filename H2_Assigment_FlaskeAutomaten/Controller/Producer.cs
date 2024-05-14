@@ -8,5 +8,6 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 {
     internal class Producer
     {
+
     }
 }

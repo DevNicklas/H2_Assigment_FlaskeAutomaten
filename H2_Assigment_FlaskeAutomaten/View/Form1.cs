@@ -1,4 +1,5 @@
-﻿using System;
+﻿using H2_Assigment_FlaskeAutomaten.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace H2_Assigment_FlaskeAutomaten
 {
-    public partial class Form1 : Form
+    public partial class FlaskeautomatenForm : Form
     {
-        public Form1()
+        public FlaskeautomatenForm()
         {
             InitializeComponent();
         }

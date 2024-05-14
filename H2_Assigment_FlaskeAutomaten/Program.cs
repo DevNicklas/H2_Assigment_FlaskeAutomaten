@@ -16,11 +16,12 @@ namespace H2_Assigment_FlaskeAutomaten
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+			Main mainController = new Main();
+			mainController.Setup();
+			Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            Main mainController = new Main();
-            mainController.Setup();
+
 		}
     }
 }

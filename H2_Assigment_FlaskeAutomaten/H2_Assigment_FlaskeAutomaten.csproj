@@ -51,6 +51,7 @@
     <Compile Include="Model\Beverages\Beer.cs" />
     <Compile Include="Model\Beverages\Beverage.cs" />
     <Compile Include="Model\Beverages\Soda.cs" />
+    <Compile Include="Model\ConveyorBuffer.cs" />
     <Compile Include="Model\Machines\Conveyor.cs" />
     <Compile Include="Model\Machines\Machine.cs" />
     <Compile Include="Model\Machines\Splitter.cs" />

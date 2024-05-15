@@ -23,52 +23,61 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
         }
 
 		internal void Start()
-        {
-            while (true)
-            {
-                lock (_lockObject) // This is needed if there is more than 1 thread running the Splitter
-                {
-                    if (_inputConveyor.Inventory.Count > 0)
-                    {
-                        Beverage newBeverage = _inputConveyor.RemoveFromInventory(_inputConveyor.GetNextBeverage());
-						if (newBeverage != null)
-                        {
-							this.AddToInventory(newBeverage);
-						}
-							
-                    }
-                    Thread.Sleep(500);
-                    Beverage beverage = this.GetNextBeverage();
-                    if (beverage != null)
-                    {
-						Sort(beverage);
-					}
-                    Thread.Sleep(500);
-                }
-            }
-        }
-        private void Sort(Beverage beverage)
-        {
-            switch (beverage)
-            {
-                case Soda soda:
-                    AddSplit(_outputConveyor[0], soda);
-                    break;
-                case Beer beer:
-					AddSplit(_outputConveyor[1], beer);
-                    break;
-                default:
-                    this.AddToInventory(beverage); // unknown beverage back to inventory
-                    break;
-            }
-        }
-        private void AddSplit(Conveyor output, Beverage beverage)
-        {
-            if (output == null) return;
-            if (output.Inventory.Count < 10)
-            {
-                output.AddToInventory(beverage);
+		{
+			while (true)
+			{
+				lock (_lockObject) // This is needed if there is more than 1 thread running the Splitter
+				{
+					GetInput();
+					Thread.Sleep(500);
+					Sort();
+					Thread.Sleep(500);
+				}
 			}
 		}
-    }
+
+		private void GetInput()
+		{
+			if (_inputConveyor.Inventory.Count > 0 && this.Inventory.Count < 10)
+			{
+				Beverage newBeverage = _inputConveyor.RemoveFromInventory(_inputConveyor.GetNextBeverage());
+				if (newBeverage != null)
+				{
+					this.AddToInventory(newBeverage);
+				}
+			}
+		}
+
+		private void Sort()
+		{
+			Beverage beverage = GetNextBeverage();
+			if (beverage != null)
+			{
+				switch (beverage)
+				{
+					case Soda soda:
+						AddToOutputConveyor(soda, _outputConveyor[0]);
+						break;
+					case Beer beer:
+						AddToOutputConveyor(beer, _outputConveyor[1]);
+						break;
+					default:
+						AddToInventory(beverage); // unknown beverage back to inventory
+						break;
+				}
+			}
+		}
+		private void AddToOutputConveyor(Beverage beverage, Conveyor output)
+		{
+			if (output == null) return;
+			if (output.Inventory.Count < 10)
+			{
+				beverage = RemoveFromInventory(beverage);
+				if (beverage != null)
+				{
+					output.AddToInventory(beverage);
+				}
+			}
+		}
+	}
 }

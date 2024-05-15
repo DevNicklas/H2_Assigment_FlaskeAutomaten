@@ -10,7 +10,10 @@ using H2_Assigment_FlaskeAutomaten.Model.Machines;
 
 namespace H2_Assigment_FlaskeAutomaten.Controller
 {
-    internal class Consumer
+	/// <summary>
+	/// Represents a consumer that continuously consumes beverages from a conveyor.
+	/// </summary>
+	internal class Consumer
     {
 		internal void Consume(Conveyor conveyor)
         {

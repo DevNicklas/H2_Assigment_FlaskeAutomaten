@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 {
-    internal class Splitter : Machine
+	/// <summary>
+	/// Represents a machine that splits beverages from an input conveyor to multiple output conveyors based on type.
+	/// </summary>
+	internal class Splitter : Machine
     {
 		private Conveyor _inputConveyor;
         private Conveyor[] _outputConveyors = new Conveyor[2];

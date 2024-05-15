@@ -1,10 +1,12 @@
 ﻿using H2_Assigment_FlaskeAutomaten.Model.Beverages;
+using H2_Assigment_FlaskeAutomaten.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using H2_Assigment_FlaskeAutomaten.View;
 
 namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 {
@@ -13,9 +15,9 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 		private Conveyor _inputConveyor;
         private Conveyor[] _outputConveyor = new Conveyor[2];
         private readonly object _lockObject = new object(); // Lock object for thread safety
-		private const int MAX_BEVERAGE = 15;
+		private const int MAX_BEVERAGE = 10;
 
-		public Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors, ConveyorBuffer buffer) : base(buffer)
+		public Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors, MachineBuffer buffer) : base(buffer)
         {
             _inputConveyor = inputConveyor;
             _outputConveyor = outputConveyors;

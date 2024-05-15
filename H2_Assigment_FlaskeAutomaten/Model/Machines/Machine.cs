@@ -11,7 +11,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 	public abstract class Machine
 	{
 		private List<Beverage> _inventory;
-		private ConveyorBuffer _buffer;
+		private MachineBuffer _buffer;
 
 
 		public List<Beverage> Inventory
@@ -19,7 +19,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 			get { return _inventory; }
 		}
 
-		public Machine(ConveyorBuffer buffer)
+		public Machine(MachineBuffer buffer)
 		{
 			buffer = _buffer;
 			_inventory = new List<Beverage>();

@@ -46,9 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Controller\Main.cs" />
     <Compile Include="Controller\Producer.cs" />
     <Compile Include="Model\Beverages\Beer.cs" />
     <Compile Include="Model\Beverages\Beverage.cs" />

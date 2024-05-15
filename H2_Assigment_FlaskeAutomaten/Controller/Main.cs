@@ -32,20 +32,24 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 
         internal static void Setup()
         {
-			_inputConveyor = SetupNewConveyor(FlaskeautomatenForm.bufferproducer);
-			_outputConveyors = new Conveyor[] { SetupNewConveyor(FlaskeautomatenForm.bufferBeer), SetupNewConveyor(FlaskeautomatenForm.bufferSoda) };
-			Splitter splitter = SetupNewSplitter(FlaskeautomatenForm.bufferSplitter);
-			Thread splitterThread = new Thread(splitter.Start);
-			splitterThread.Start();
-			Consumer consumer = new Consumer();
-			Thread consumeThread = new Thread(consumer.Consume);
-			consumeThread.Start();
+            _inputConveyor = SetupNewConveyor(FlaskeautomatenForm.bufferproducer);
+            _outputConveyors = new Conveyor[] { SetupNewConveyor(FlaskeautomatenForm.bufferSoda), SetupNewConveyor(FlaskeautomatenForm.bufferBeer) };
 
-		}
-		
+            Splitter splitter = SetupNewSplitter(FlaskeautomatenForm.bufferSplitter);
+            Thread splitterThread = new Thread(splitter.Start);
+            splitterThread.Start();
+
+            Consumer consumer = new Consumer();
+            Thread consumeThread1 = new Thread(() => consumer.Consume(_outputConveyors[0]));
+            consumeThread1.Start();
+
+            Thread consumeThread2 = new Thread(() => consumer.Consume(_outputConveyors[1]));
+            consumeThread2.Start();
+        }
 
 
-		private static Splitter SetupNewSplitter(MachineBuffer buffer)
+
+        private static Splitter SetupNewSplitter(MachineBuffer buffer)
 		{
 			return new Splitter(_inputConveyor, _outputConveyors, buffer);
 		}

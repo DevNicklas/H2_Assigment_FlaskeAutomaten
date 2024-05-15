@@ -13,14 +13,14 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
     internal class Splitter : Machine
     {
 		private Conveyor _inputConveyor;
-        private Conveyor[] _outputConveyor = new Conveyor[2];
+        private Conveyor[] _outputConveyors = new Conveyor[2];
         private readonly object _lockObject = new object(); // Lock object for thread safety
 		private int sortingInterval = 500;
 
 		internal Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors, MachineBuffer buffer) : base(buffer)
         {
             _inputConveyor = inputConveyor;
-            _outputConveyor = outputConveyors;
+            _outputConveyors = outputConveyors;
         }
 		/// <summary>
 		/// Method to start the Splitter
@@ -63,10 +63,10 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 				switch (beverage)
 				{
 					case Soda soda:
-						AddToOutputConveyor(soda, _outputConveyor[0]);
+						AddToOutputConveyor(soda, _outputConveyors[0]);
 						break;
 					case Beer beer:
-						AddToOutputConveyor(beer, _outputConveyor[1]);
+						AddToOutputConveyor(beer, _outputConveyors[1]);
 						break;
 					default:
 						AddToInventory(beverage); // unknown beverage back to inventory

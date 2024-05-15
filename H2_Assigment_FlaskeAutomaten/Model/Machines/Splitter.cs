@@ -13,8 +13,9 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
         private Conveyor _inputConveyor;
         private Conveyor[] _outputConveyor = new Conveyor[2];
         private readonly object _lockObject = new object(); // Lock object for thread safety
+		private const int MAX_BEVERAGE = 15;
 
-        public Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors)
+		public Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors)
         {
             _inputConveyor = inputConveyor;
             _outputConveyor = outputConveyors;
@@ -26,13 +27,16 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
             {
                 lock (_lockObject) // This is needed if there is more than 1 thread running the Splitter
                 {
-                    if (_inputConveyor.Inventory.Count > 0 && this.Inventory.Count < 10)
+                    if (_inputConveyor.Inventory.Count > 0 && this.Inventory.Count < MAX_BEVERAGE)
                     {
                         this.AddToInventory(_inputConveyor.RemoveFromInventory());
                     }
                     Thread.Sleep(500);
                     Beverage beverage = this.RemoveFromInventory(); // Retrieve removed beverage
-                    Sort(beverage);
+                    if (beverage != null)
+                    {
+						Sort(beverage);
+					}
                     Thread.Sleep(500);
                 }
             }

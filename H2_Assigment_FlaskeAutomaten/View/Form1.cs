@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using H2_Assigment_FlaskeAutomaten.Controller;
 
 namespace H2_Assigment_FlaskeAutomaten
 {
@@ -24,5 +25,15 @@ namespace H2_Assigment_FlaskeAutomaten
 
             buffer.AddBeverage(soda);
         }
-    }
+
+		private void beerBtn_Click(object sender, EventArgs e)
+		{
+			Main.inputConveyor.AddToInventory(new Beer(10));
+		}
+
+		private void sodaBtn_Click(object sender, EventArgs e)
+		{
+			Main.inputConveyor.AddToInventory(new Soda(100));
+		}
+	}
 }

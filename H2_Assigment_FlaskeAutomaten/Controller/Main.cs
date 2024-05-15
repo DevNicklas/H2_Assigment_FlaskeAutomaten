@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using H2_Assigment_FlaskeAutomaten.Model;
 using H2_Assigment_FlaskeAutomaten.Model.Beverages;
 using H2_Assigment_FlaskeAutomaten.Model.Machines;
+using H2_Assigment_FlaskeAutomaten.View;
 
 namespace H2_Assigment_FlaskeAutomaten.Controller
 {
@@ -28,11 +29,11 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 		
 
 
-		private Splitter SetupNewSplitter(ConveyorBuffer buffer)
+		private Splitter SetupNewSplitter(MachineBuffer buffer)
 		{
 			return new Splitter(inputConveyor, outputConveyors, buffer);
 		}
-		private Conveyor SetupNewConveyor(ConveyorBuffer buffer)
+		private Conveyor SetupNewConveyor(MachineBuffer buffer)
 		{
 			return new Conveyor(buffer);
 		}

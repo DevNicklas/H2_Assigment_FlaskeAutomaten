@@ -17,7 +17,5 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
             _addBeerBtn = addBeerBtn;
             _addSodaBtn = addSodaBtn;
         }
-
-
     }
 }

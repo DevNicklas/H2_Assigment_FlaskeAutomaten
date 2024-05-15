@@ -14,17 +14,24 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 	{
 		public void Consume()
 		{
+			// Continuously consume beverages
 			while (true) { 
 				foreach (Conveyor Conveyor in Main.outputConveyors)
 				{
-					Beverage beverage = Conveyor.GetNextBeverage();
-					if (beverage != null)
+					// Lock the conveyor to ensure thread safety
+					lock (Conveyor)
 					{
-						Conveyor.RemoveFromInventory(beverage);
-						Thread.Sleep(2000);
+						Beverage beverage = Conveyor.GetNextBeverage();
+						if (beverage != null)
+						{
+							// Remove the beverage from the inventory
+							Conveyor.RemoveFromInventory(beverage);
+						}
 					}
+					// Wait for 2000 milliseconds (2 sec) before processing the next conveyor
+					Thread.Sleep(2000);
 				}
-				Thread.Sleep(250);
+					
 			}
 		}
 	}

@@ -8,5 +8,8 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 {
 	internal class Conveyor : Machine
 	{
+		public Conveyor(ConveyorBuffer buffer) : base(buffer){
+
+		}
 	}
 }

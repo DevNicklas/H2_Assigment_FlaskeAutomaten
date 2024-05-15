@@ -15,15 +15,15 @@ namespace H2_Assigment_FlaskeAutomaten
 {
     public partial class FlaskeautomatenForm : Form
     {
-        public FlaskeautomatenForm()
+
+		public FlaskeautomatenForm()
         {
             InitializeComponent();
 
-            ConveyorBuffer buffer = new ConveyorBuffer(producerBuffer, producerProgressBar);
 
-            Soda soda = new Soda(20);
 
-            buffer.AddBeverage(soda);
+
+			Soda soda = new Soda(20);
         }
 
 		private void beerBtn_Click(object sender, EventArgs e)

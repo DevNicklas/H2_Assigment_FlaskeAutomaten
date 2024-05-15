@@ -10,12 +10,12 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 {
     internal class Splitter : Machine
     {
-        private Conveyor _inputConveyor;
+		private Conveyor _inputConveyor;
         private Conveyor[] _outputConveyor = new Conveyor[2];
         private readonly object _lockObject = new object(); // Lock object for thread safety
 		private const int MAX_BEVERAGE = 15;
 
-		public Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors)
+		public Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors, ConveyorBuffer buffer) : base(buffer)
         {
             _inputConveyor = inputConveyor;
             _outputConveyor = outputConveyors;

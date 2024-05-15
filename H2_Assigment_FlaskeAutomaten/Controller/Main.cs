@@ -29,11 +29,11 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 		
 
 
-		private Splitter SetupNewSplitter(MachineBuffer buffer)
+		private static Splitter SetupNewSplitter(MachineBuffer buffer)
 		{
 			return new Splitter(inputConveyor, outputConveyors, buffer);
 		}
-		private Conveyor SetupNewConveyor(MachineBuffer buffer)
+		private static Conveyor SetupNewConveyor(MachineBuffer buffer)
 		{
 			return new Conveyor(buffer);
 		}

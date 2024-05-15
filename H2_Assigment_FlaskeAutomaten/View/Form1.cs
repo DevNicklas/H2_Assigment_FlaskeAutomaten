@@ -23,13 +23,13 @@ namespace H2_Assigment_FlaskeAutomaten
 		public FlaskeautomatenForm()
         {
             InitializeComponent();
-
+			
 			bufferproducer = new MachineBuffer(producerBuffer, producerProgressBar);
 			bufferBeer = new MachineBuffer(beerBuffer, beerProgressBar);
 			bufferSoda = new MachineBuffer(sodaBuffer, sodaProgressBar);
 
 			bufferSplitter = new MachineBuffer(SplitterBuffer, SpiltterProgressBar);
-
+			Main.Setup();
 		}
 
 		private void beerBtn_Click(object sender, EventArgs e)

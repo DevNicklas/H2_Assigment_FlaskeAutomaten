@@ -10,12 +10,12 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Beverages
     {
         private float _sugar;
 
-        public Soda(float sugar) : base("Faxe kondi")
+        internal Soda(float sugar) : base("Faxe kondi")
         {
             _sugar = sugar;
         }
 
-        public float Sugar
+        internal float Sugar
         {
             get
             {

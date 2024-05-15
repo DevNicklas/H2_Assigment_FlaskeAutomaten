@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace H2_Assigment_FlaskeAutomaten.Model.Beverages
 {
-    public abstract class Beverage
+    internal abstract class Beverage
     {
         private string _name;
 
@@ -15,7 +15,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Beverages
             _name = name;
         }
 
-        public string Name
+        internal string Name
         {
             get
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using H2_Assigment_FlaskeAutomaten.Model.Beverages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,19 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
         {
             _addBeerBtn = addBeerBtn;
             _addSodaBtn = addSodaBtn;
+
+            _addBeerBtn.Click += OnAddBeerBtnClick;
+            _addSodaBtn.Click += OnAddSodaBtnClick;
+        }
+
+        private void OnAddBeerBtnClick(object sender, EventArgs e)
+        {
+            Main.InputConveyor.AddToInventory(new Beer(10));
+        }
+
+        private void OnAddSodaBtnClick(object sender, EventArgs e)
+        {
+            Main.InputConveyor.AddToInventory(new Soda(100));
         }
     }
 }

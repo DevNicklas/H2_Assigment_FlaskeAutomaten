@@ -26,7 +26,7 @@ namespace H2_Assigment_FlaskeAutomaten.View
 		{
 			if (_listBoxBeverages.Items.Count < _beverageListProgress.Maximum)
 			{
-				// If invoking is required (cross-thread operation), invoke adding beverage again
+				// If invoking is required (cross-thread operation), invoke adding beverage again,
 				if (_listBoxBeverages.InvokeRequired)
 				{
 					_listBoxBeverages.Invoke(new Action(() => AddBeverage(beverage)));

@@ -47,8 +47,6 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
             consumeThread2.Start();
         }
 
-
-
         private static Splitter SetupNewSplitter(MachineBuffer buffer)
 		{
 			return new Splitter(_inputConveyor, _outputConveyors, buffer);

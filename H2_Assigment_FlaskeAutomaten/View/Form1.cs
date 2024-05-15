@@ -23,23 +23,14 @@ namespace H2_Assigment_FlaskeAutomaten
         internal FlaskeautomatenForm()
         {
             InitializeComponent();
-			
+			Producer producer = new Producer(beerBtn, sodaBtn);
+
 			bufferproducer = new MachineBuffer(producerBuffer, producerProgressBar);
 			bufferBeer = new MachineBuffer(beerBuffer, beerProgressBar);
 			bufferSoda = new MachineBuffer(sodaBuffer, sodaProgressBar);
 
 			bufferSplitter = new MachineBuffer(SplitterBuffer, SpiltterProgressBar);
 			Main.Setup();
-		}
-
-		private void beerBtn_Click(object sender, EventArgs e)
-		{
-			Main.inputConveyor.AddToInventory(new Beer(10));
-		}
-
-		private void sodaBtn_Click(object sender, EventArgs e)
-		{
-			Main.inputConveyor.AddToInventory(new Soda(100));
 		}
 	}
 }

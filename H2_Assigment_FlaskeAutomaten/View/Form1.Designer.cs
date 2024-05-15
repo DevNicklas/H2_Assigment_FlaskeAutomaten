@@ -61,7 +61,6 @@
 			this.beerBtn.TabIndex = 2;
 			this.beerBtn.Text = "+1 Øl";
 			this.beerBtn.UseVisualStyleBackColor = true;
-			this.beerBtn.Click += new System.EventHandler(this.beerBtn_Click);
 			// 
 			// sodaBtn
 			// 
@@ -71,7 +70,6 @@
 			this.sodaBtn.TabIndex = 3;
 			this.sodaBtn.Text = "+1 Soda";
 			this.sodaBtn.UseVisualStyleBackColor = true;
-			this.sodaBtn.Click += new System.EventHandler(this.sodaBtn_Click);
 			// 
 			// producerBufferLabel
 			// 

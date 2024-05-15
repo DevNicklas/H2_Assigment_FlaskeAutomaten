@@ -15,26 +15,30 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 		private Conveyor _inputConveyor;
         private Conveyor[] _outputConveyor = new Conveyor[2];
         private readonly object _lockObject = new object(); // Lock object for thread safety
-		private const int MAX_BEVERAGE = 10;
 
-		public Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors, MachineBuffer buffer) : base(buffer)
+		internal Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors, MachineBuffer buffer) : base(buffer)
         {
             _inputConveyor = inputConveyor;
             _outputConveyor = outputConveyors;
         }
 
-        public void Start()
+		internal void Start()
         {
             while (true)
             {
                 lock (_lockObject) // This is needed if there is more than 1 thread running the Splitter
                 {
-                    if (_inputConveyor.Inventory.Count > 0 && this.Inventory.Count < MAX_BEVERAGE)
+                    if (_inputConveyor.Inventory.Count > 0)
                     {
-                        this.AddToInventory(_inputConveyor.RemoveFromInventory());
+                        Beverage newBeverage = _inputConveyor.RemoveFromInventory(_inputConveyor.GetNextBeverage());
+						if (newBeverage != null)
+                        {
+							this.AddToInventory(newBeverage);
+						}
+							
                     }
                     Thread.Sleep(500);
-                    Beverage beverage = this.RemoveFromInventory(); // Retrieve removed beverage
+                    Beverage beverage = this.GetNextBeverage();
                     if (beverage != null)
                     {
 						Sort(beverage);
@@ -48,15 +52,23 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
             switch (beverage)
             {
                 case Soda soda:
-                    _outputConveyor[0].AddToInventory(soda);
+                    AddSplit(_outputConveyor[0], soda);
                     break;
                 case Beer beer:
-                    _outputConveyor[1].AddToInventory(beer);
+					AddSplit(_outputConveyor[1], beer);
                     break;
                 default:
                     this.AddToInventory(beverage); // unknown beverage back to inventory
                     break;
             }
         }
+        private void AddSplit(Conveyor output, Beverage beverage)
+        {
+            if (output == null) return;
+            if (output.Inventory.Count < 10)
+            {
+                output.AddToInventory(beverage);
+			}
+		}
     }
 }

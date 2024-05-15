@@ -19,27 +19,40 @@ namespace H2_Assigment_FlaskeAutomaten.View
             _beverageListProgress = beverageListProgress;
         }
 
-        internal void AddBeverage(Beverage beverage)
-        {
-            if(_listBoxBeverages.Items.Count >= _beverageListProgress.Maximum)
-            {
-                throw new NotImplementedException();
-            }
-            _listBoxBeverages.Items.Add(beverage.Name);
-            _beverageListProgress.Value++;
-        }
+		internal void AddBeverage(Beverage beverage)
+		{
+			if (_listBoxBeverages.Items.Count < _beverageListProgress.Maximum)
+			{
+				if (_listBoxBeverages.InvokeRequired)
+				{
+					_listBoxBeverages.Invoke(new Action(() => AddBeverage(beverage)));
+				}
+				else
+				{
+					_listBoxBeverages.Items.Add(beverage.Name);
+					_beverageListProgress.Value++;
+				}
+			}
+		}
 
-        internal void RemoveBeverage(Beverage beverage)
-        {
-            if (!_listBoxBeverages.Items.Contains(beverage.Name))
-            {
-                throw new NotImplementedException();
-            }
-            else
-            {
-                _listBoxBeverages.Items.Remove(beverage.Name);
-                _beverageListProgress.Value--;
-            }
-        }
-    }
+		internal void RemoveBeverage(Beverage beverage)
+		{
+			if (_listBoxBeverages.InvokeRequired)
+			{
+				_listBoxBeverages.Invoke(new Action(() => RemoveBeverage(beverage)));
+			}
+			else
+			{
+				if (!_listBoxBeverages.Items.Contains(beverage.Name))
+				{
+					throw new NotImplementedException();
+				}
+				else
+				{
+					_listBoxBeverages.Items.Remove(beverage.Name);
+					_beverageListProgress.Value--;
+				}
+			}
+		}
+	}
 }

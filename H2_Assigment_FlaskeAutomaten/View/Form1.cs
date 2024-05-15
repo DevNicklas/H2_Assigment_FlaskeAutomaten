@@ -30,7 +30,7 @@ namespace H2_Assigment_FlaskeAutomaten
 			bufferSoda = new MachineBuffer(sodaBuffer, sodaProgressBar);
 
 			bufferSplitter = new MachineBuffer(SplitterBuffer, SpiltterProgressBar);
-
+			Main.Setup();
 		}
 	}
 }

@@ -12,34 +12,42 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 	{
 		private List<Beverage> _inventory;
 		private MachineBuffer _buffer;
+		private const int MAX_BEVERAGE = 10;
 
-
-		public List<Beverage> Inventory
+		internal List<Beverage> Inventory
 		{
 			get { return _inventory; }
 		}
 
-		public Machine(MachineBuffer buffer)
+		internal Machine(MachineBuffer buffer)
 		{
-			buffer = _buffer;
+			_buffer = buffer;
 			_inventory = new List<Beverage>();
 		}
 
-		public void AddToInventory(Beverage beverage)
+		internal bool AddToInventory(Beverage beverage)
 		{
-			_inventory.Add(beverage);
-			_buffer.AddBeverage(beverage);
+			if (_inventory.Count < MAX_BEVERAGE)
+			{
+				_inventory.Add(beverage);
+				_buffer.AddBeverage(beverage);
+				return true;
+			}
+			return false;
+
 		}
 
-        public Beverage RemoveFromInventory()
+		internal Beverage GetNextBeverage() => _inventory.FirstOrDefault();
+
+		internal Beverage RemoveFromInventory(Beverage beverage)
         {
-            Beverage beverage = _inventory.FirstOrDefault();
             if (beverage != null)
 			{
 				_inventory.Remove(beverage);
 				_buffer.RemoveBeverage(beverage);
+				return beverage;
 			} 
-            return beverage;
+			return null;
         }
     }
 }

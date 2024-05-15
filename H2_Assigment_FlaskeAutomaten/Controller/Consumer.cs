@@ -12,7 +12,7 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 {
     internal class Consumer
     {
-        public void Consume(Conveyor conveyor)
+		internal void Consume(Conveyor conveyor)
         {
             // Continuously consume beverages
             while (true)

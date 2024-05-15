@@ -19,15 +19,22 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
         private readonly object _lockObject = new object(); // Lock object for thread safety
 		private int sortingInterval = 500;
 
-		internal Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors, MachineBuffer buffer) : base(buffer)
+        /// <summary>
+        /// Represents a splitter that divides incoming items from an input conveyor and distributes them to multiple output conveyors.
+        /// </summary>
+        /// <param name="inputConveyor">The input conveyor from which items are received.</param>
+        /// <param name="outputConveyors">An array of output conveyors to which items are distributed.</param>
+        /// <param name="buffer">The buffer associated with the splitter.</param>
+        internal Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors, MachineBuffer buffer) : base(buffer)
         {
             _inputConveyor = inputConveyor;
             _outputConveyors = outputConveyors;
         }
-		/// <summary>
-		/// Method to start the Splitter
-		/// </summary>
-		internal void Start()
+
+        /// <summary>
+        /// Method to start the Splitter
+        /// </summary>
+        internal void Start()
 		{
 			while (true)
 			{
@@ -40,6 +47,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 				}
 			}
 		}
+
 		/// <summary>
 		///  Method to get input from the input conveyor
 		/// </summary>
@@ -54,6 +62,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 				}
 			}
 		}
+
 		/// <summary>
 		/// Method to sort the beverages
 		/// </summary>
@@ -76,6 +85,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 				}
 			}
 		}
+
 		/// <summary>
 		///  Method to add beverage to output conveyor
 		/// </summary>

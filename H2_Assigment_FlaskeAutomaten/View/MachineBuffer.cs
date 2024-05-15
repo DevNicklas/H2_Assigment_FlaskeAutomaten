@@ -16,50 +16,61 @@ namespace H2_Assigment_FlaskeAutomaten.View
         private ListBox _listBoxBeverages;
         private ProgressBar _beverageListProgress;
 
+        /// <summary>
+        /// Represents a buffer used for managing beverages in a ListBox and ProgressBar.
+        /// </summary>
+        /// <param name="listBoxBeverages">The ListBox control for displaying beverages.</param>
+        /// <param name="beverageListProgress">The ProgressBar control for visualizing beverage list progress.</param>
         internal MachineBuffer(ListBox listBoxBeverages, ProgressBar beverageListProgress)
         {
             _listBoxBeverages = listBoxBeverages;
             _beverageListProgress = beverageListProgress;
         }
-		// Method to add a beverage to the list box and update the progress bar
-		internal void AddBeverage(Beverage beverage)
-		{
-			if (_listBoxBeverages.Items.Count < _beverageListProgress.Maximum)
-			{
-				// If invoking is required (cross-thread operation), invoke adding beverage again,
-				if (_listBoxBeverages.InvokeRequired)
-				{
-					_listBoxBeverages.Invoke(new Action(() => AddBeverage(beverage)));
-				}
-				else
-				{
-					_listBoxBeverages.Items.Add(beverage.Name);
-					_beverageListProgress.Value++;
-				}
-			}
-		}
 
-		// Method to remove a beverage from the list box and update the progress bar
-		internal void RemoveBeverage(Beverage beverage)
-		{
-			if (_listBoxBeverages.InvokeRequired)
-			{
-				_listBoxBeverages.Invoke(new Action(() => RemoveBeverage(beverage)));
-			}
-			else
-			{
-				// If the beverage is not found in the list box, throw an exception
-				if (!_listBoxBeverages.Items.Contains(beverage.Name))
-				{
+        /// <summary>
+        /// Adds a beverage to the ListBox and updates the ProgressBar if space is available.
+        /// </summary>
+        /// <param name="beverage">The beverage to add.</param>
+        internal void AddBeverage(Beverage beverage)
+        {
+            if (_listBoxBeverages.Items.Count < _beverageListProgress.Maximum)
+            {
+                // If invoking is required (cross-thread operation), invoke adding beverage again,
+                if (_listBoxBeverages.InvokeRequired)
+                {
+                    _listBoxBeverages.Invoke(new Action(() => AddBeverage(beverage)));
+                }
+                else
+                {
+                    _listBoxBeverages.Items.Add(beverage.Name);
+                    _beverageListProgress.Value++;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes a beverage from the ListBox and updates the ProgressBar
+        /// </summary>
+        /// <param name="beverage">The beverage to remove</param>
+        internal void RemoveBeverage(Beverage beverage)
+        {
+            if (_listBoxBeverages.InvokeRequired)
+            {
+                _listBoxBeverages.Invoke(new Action(() => RemoveBeverage(beverage)));
+            }
+            else
+            {
+                // If the beverage is not found in the list box, throw an exception
+                if (!_listBoxBeverages.Items.Contains(beverage.Name))
+                {
                     throw new Exception("Kan ikke fjerne drikkevarer");
                 }
-				else
-				{
-					// Remove the beverage from the list box and update the progress bar
-					_listBoxBeverages.Items.Remove(beverage.Name);
-					_beverageListProgress.Value--;
-				}
-			}
-		}
-	}
+                else
+                {
+                    _listBoxBeverages.Items.Remove(beverage.Name);
+                    _beverageListProgress.Value--;
+                }
+            }
+        }
+    }
 }

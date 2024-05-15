@@ -15,7 +15,11 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 	/// </summary>
 	internal class Consumer
     {
-		internal void Consume(Conveyor conveyor)
+        /// <summary>
+        /// Consumes beverages from a conveyor.
+        /// </summary>
+        /// <param name="conveyor">The conveyor from which beverages are consumed.</param>
+        internal void Consume(Conveyor conveyor)
         {
             // Continuously consume beverages
             while (true)
@@ -32,7 +36,6 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
                 }
                 // Wait for 3000 milliseconds (3 sec) before processing the next conveyor
                 Thread.Sleep(3000);
-
             }
         }
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using H2_Assigment_FlaskeAutomaten.Controller;
+using H2_Assigment_FlaskeAutomaten.View;
 
 namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 {

@@ -15,6 +15,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 		private Conveyor _inputConveyor;
         private Conveyor[] _outputConveyor = new Conveyor[2];
         private readonly object _lockObject = new object(); // Lock object for thread safety
+		private int sortingInterval = 500;
 
 		internal Splitter(Conveyor inputConveyor, Conveyor[] outputConveyors, MachineBuffer buffer) : base(buffer)
         {
@@ -29,9 +30,9 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 				lock (_lockObject) // This is needed if there is more than 1 thread running the Splitter
 				{
 					GetInput();
-					Thread.Sleep(500);
+					Thread.Sleep(sortingInterval);
 					Sort();
-					Thread.Sleep(500);
+					Thread.Sleep(sortingInterval);
 				}
 			}
 		}

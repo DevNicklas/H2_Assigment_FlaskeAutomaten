@@ -17,7 +17,7 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
         public static Conveyor[] outputConveyors;
 
 
-		public void Setup()
+		public static void Setup()
         {
 
 			inputConveyor = SetupNewConveyor(FlaskeautomatenForm.bufferproducer);

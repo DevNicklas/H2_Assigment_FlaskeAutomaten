@@ -51,8 +51,8 @@ namespace H2_Assigment_FlaskeAutomaten.View
 				// If the beverage is not found in the list box, throw an exception
 				if (!_listBoxBeverages.Items.Contains(beverage.Name))
 				{
-					throw new NotImplementedException();
-				}
+                    throw new Exception("Kan ikke fjerne drikkevarer");
+                }
 				else
 				{
 					// Remove the beverage from the list box and update the progress bar

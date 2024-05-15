@@ -25,7 +25,11 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 			Splitter splitter = SetupNewSplitter(FlaskeautomatenForm.bufferSplitter);
 			Thread splitterThread = new Thread(splitter.Start);
 			splitterThread.Start();
-        }
+			Consumer consumer = new Consumer();
+			Thread consumeThread = new Thread(consumer.Consume);
+			consumeThread.Start();
+
+		}
 		
 
 

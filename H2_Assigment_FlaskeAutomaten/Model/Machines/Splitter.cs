@@ -22,7 +22,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
             _outputConveyor = outputConveyors;
         }
 
-		internal void Start()
+		internal void Start() // Method to start the Splitter
 		{
 			while (true)
 			{
@@ -36,7 +36,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 			}
 		}
 
-		private void GetInput()
+		private void GetInput() // Method to get input from the input conveyor
 		{
 			if (_inputConveyor.Inventory.Count > 0 && this.Inventory.Count < 10)
 			{
@@ -48,7 +48,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 			}
 		}
 
-		private void Sort()
+		private void Sort() // Method to sort the beverages
 		{
 			Beverage beverage = GetNextBeverage();
 			if (beverage != null)
@@ -67,7 +67,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 				}
 			}
 		}
-		private void AddToOutputConveyor(Beverage beverage, Conveyor output)
+		private void AddToOutputConveyor(Beverage beverage, Conveyor output) // Method to add beverage to output conveyor
 		{
 			if (output == null) return;
 			if (output.Inventory.Count < 10)

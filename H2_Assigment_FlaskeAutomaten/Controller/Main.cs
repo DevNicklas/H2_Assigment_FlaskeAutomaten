@@ -11,7 +11,8 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 {
     internal class Main
     {
-        private static Conveyor _inputConveyor;
+		// Declare private fields for input and output conveyors
+		private static Conveyor _inputConveyor;
         private static Conveyor[] _outputConveyors;
 
 		internal static Conveyor InputConveyor
@@ -32,14 +33,20 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 
         internal static void Setup()
         {
-            _inputConveyor = SetupNewConveyor(FlaskeautomatenForm.bufferproducer);
-            _outputConveyors = new Conveyor[] { SetupNewConveyor(FlaskeautomatenForm.bufferSoda), SetupNewConveyor(FlaskeautomatenForm.bufferBeer) };
+			// Set up input conveyor with bufferproducer
+			_inputConveyor = SetupNewConveyor(FlaskeautomatenForm.bufferproducer);
 
-            Splitter splitter = SetupNewSplitter(FlaskeautomatenForm.bufferSplitter);
+			// Set up output conveyors with bufferSoda and bufferBeer
+			_outputConveyors = new Conveyor[] { SetupNewConveyor(FlaskeautomatenForm.bufferSoda), SetupNewConveyor(FlaskeautomatenForm.bufferBeer) };
+
+			// Set up splitter with bufferSplitter
+			Splitter splitter = SetupNewSplitter(FlaskeautomatenForm.bufferSplitter);
             Thread splitterThread = new Thread(splitter.Start);
             splitterThread.Start();
 
-            Consumer consumer = new Consumer();
+
+			// Set up consumer threads for each output conveyor
+			Consumer consumer = new Consumer();
             Thread consumeThread1 = new Thread(() => consumer.Consume(_outputConveyors[0]));
             consumeThread1.Start();
 
@@ -47,11 +54,14 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
             consumeThread2.Start();
         }
 
-        private static Splitter SetupNewSplitter(MachineBuffer buffer)
+
+		// Method to create a new splitter instance
+		private static Splitter SetupNewSplitter(MachineBuffer buffer)
 		{
 			return new Splitter(_inputConveyor, _outputConveyors, buffer);
 		}
 
+		// Method to create a new conveyor instance
 		private static Conveyor SetupNewConveyor(MachineBuffer buffer)
 		{
 			return new Conveyor(buffer);

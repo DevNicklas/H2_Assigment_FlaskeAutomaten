@@ -15,20 +15,20 @@ namespace H2_Assigment_FlaskeAutomaten
 {
     public partial class FlaskeautomatenForm : Form
     {
-		public static ConveyorBuffer bufferproducer;
-		public static ConveyorBuffer bufferBeer;
-		public static ConveyorBuffer bufferSoda;
+		public static MachineBuffer bufferproducer;
+		public static MachineBuffer bufferBeer;
+		public static MachineBuffer bufferSoda;
 
-		public static ConveyorBuffer bufferSplitter;
+		public static MachineBuffer bufferSplitter;
 		public FlaskeautomatenForm()
         {
             InitializeComponent();
 
-			bufferproducer = new ConveyorBuffer(producerBuffer, producerProgressBar, 10);
-			bufferBeer = new ConveyorBuffer(beerBuffer, beerProgressBar, 10);
-			bufferSoda = new ConveyorBuffer(sodaBuffer, sodaProgressBar, 10);
+			bufferproducer = new MachineBuffer(producerBuffer, producerProgressBar);
+			bufferBeer = new MachineBuffer(beerBuffer, beerProgressBar);
+			bufferSoda = new MachineBuffer(sodaBuffer, sodaProgressBar);
 
-			bufferSplitter = new ConveyorBuffer(SplitterBuffer, SpiltterProgressBar, 10);
+			bufferSplitter = new MachineBuffer(SplitterBuffer, SpiltterProgressBar);
 
 		}
 

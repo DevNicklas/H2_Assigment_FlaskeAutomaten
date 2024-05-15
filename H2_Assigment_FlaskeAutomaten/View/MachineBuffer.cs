@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace H2_Assigment_FlaskeAutomaten.View
 {
-    public class ConveyorBuffer
+    public class MachineBuffer
     {
         private ListBox _listBoxBeverages;
         private ProgressBar _beverageListProgress;
 
-        internal ConveyorBuffer(ListBox listBoxBeverages, ProgressBar beverageListProgress)
+        internal MachineBuffer(ListBox listBoxBeverages, ProgressBar beverageListProgress)
         {
             _listBoxBeverages = listBoxBeverages;
             _beverageListProgress = beverageListProgress;

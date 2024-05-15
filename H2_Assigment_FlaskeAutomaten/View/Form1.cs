@@ -13,14 +13,14 @@ using H2_Assigment_FlaskeAutomaten.Controller;
 
 namespace H2_Assigment_FlaskeAutomaten
 {
-    public partial class FlaskeautomatenForm : Form
+    internal partial class FlaskeautomatenForm : Form
     {
-		public static MachineBuffer bufferproducer;
-		public static MachineBuffer bufferBeer;
-		public static MachineBuffer bufferSoda;
+        internal static MachineBuffer bufferproducer;
+        internal static MachineBuffer bufferBeer;
+        internal static MachineBuffer bufferSoda;
 
-		public static MachineBuffer bufferSplitter;
-		public FlaskeautomatenForm()
+        internal static MachineBuffer bufferSplitter;
+        internal FlaskeautomatenForm()
         {
             InitializeComponent();
 			

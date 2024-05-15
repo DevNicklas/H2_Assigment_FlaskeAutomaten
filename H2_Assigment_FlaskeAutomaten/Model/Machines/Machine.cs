@@ -15,12 +15,7 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 	{
 		private List<Beverage> _inventory;
 		private MachineBuffer _buffer;
-		private const int MAX_BEVERAGE = 10;
-
-		internal List<Beverage> Inventory
-		{
-			get { return _inventory; }
-		}
+		private const uint MAX_BEVERAGE = 10;
 
 		internal Machine(MachineBuffer buffer)
 		{
@@ -28,13 +23,17 @@ namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 			_inventory = new List<Beverage>();
 		}
 
+        internal List<Beverage> Inventory
+        {
+            get { return _inventory; }
+        }
 
-		/// <summary>
-		/// Adds a beverage to the inventory if there is space available.
-		/// </summary>
-		/// <param name="beverage">The beverage to add.</param>
-		/// <returns>True if the beverage was added successfully, false otherwise.</returns>
-		internal bool AddToInventory(Beverage beverage)
+        /// <summary>
+        /// Adds a beverage to the inventory if there is space available.
+        /// </summary>
+        /// <param name="beverage">The beverage to add.</param>
+        /// <returns>True if the beverage was added successfully, false otherwise.</returns>
+        internal bool AddToInventory(Beverage beverage)
 		{
 			if (_inventory.Count < MAX_BEVERAGE)
 			{

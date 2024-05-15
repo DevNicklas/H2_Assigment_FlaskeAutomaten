@@ -159,6 +159,7 @@
 			// SpiltterProgressBar
 			// 
 			this.SpiltterProgressBar.Location = new System.Drawing.Point(248, 415);
+			this.SpiltterProgressBar.Maximum = 10;
 			this.SpiltterProgressBar.Name = "SpiltterProgressBar";
 			this.SpiltterProgressBar.Size = new System.Drawing.Size(145, 23);
 			this.SpiltterProgressBar.TabIndex = 17;

@@ -21,7 +21,7 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
         {
 
 			inputConveyor = SetupNewConveyor(FlaskeautomatenForm.bufferproducer);
-			outputConveyors = new Conveyor[] { SetupNewConveyor(FlaskeautomatenForm.bufferBeer), SetupNewConveyor(FlaskeautomatenForm.bufferSoda) };
+			outputConveyors = new Conveyor[] { SetupNewConveyor(FlaskeautomatenForm.bufferSoda), SetupNewConveyor(FlaskeautomatenForm.bufferBeer) };
 			Splitter splitter = SetupNewSplitter(FlaskeautomatenForm.bufferSplitter);
 			Thread splitterThread = new Thread(splitter.Start);
 			splitterThread.Start();

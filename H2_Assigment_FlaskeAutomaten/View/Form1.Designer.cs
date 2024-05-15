@@ -40,6 +40,9 @@
 			this.producerBuffer = new System.Windows.Forms.ListBox();
 			this.beerBuffer = new System.Windows.Forms.ListBox();
 			this.sodaBuffer = new System.Windows.Forms.ListBox();
+			this.SplitterBuffer = new System.Windows.Forms.ListBox();
+			this.SpiltterProgressBar = new System.Windows.Forms.ProgressBar();
+			this.label2 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -82,7 +85,7 @@
 			// beerBufferLabel
 			// 
 			this.beerBufferLabel.AutoSize = true;
-			this.beerBufferLabel.Location = new System.Drawing.Point(173, 59);
+			this.beerBufferLabel.Location = new System.Drawing.Point(476, 59);
 			this.beerBufferLabel.Name = "beerBufferLabel";
 			this.beerBufferLabel.Size = new System.Drawing.Size(60, 13);
 			this.beerBufferLabel.TabIndex = 8;
@@ -91,7 +94,7 @@
 			// sodaBufferLabel
 			// 
 			this.sodaBufferLabel.AutoSize = true;
-			this.sodaBufferLabel.Location = new System.Drawing.Point(337, 59);
+			this.sodaBufferLabel.Location = new System.Drawing.Point(640, 59);
 			this.sodaBufferLabel.Name = "sodaBufferLabel";
 			this.sodaBufferLabel.Size = new System.Drawing.Size(63, 13);
 			this.sodaBufferLabel.TabIndex = 9;
@@ -106,14 +109,14 @@
 			// 
 			// beerProgressBar
 			// 
-			this.beerProgressBar.Location = new System.Drawing.Point(176, 415);
+			this.beerProgressBar.Location = new System.Drawing.Point(479, 415);
 			this.beerProgressBar.Name = "beerProgressBar";
 			this.beerProgressBar.Size = new System.Drawing.Size(145, 23);
 			this.beerProgressBar.TabIndex = 11;
 			// 
 			// sodaProgressBar
 			// 
-			this.sodaProgressBar.Location = new System.Drawing.Point(340, 415);
+			this.sodaProgressBar.Location = new System.Drawing.Point(643, 415);
 			this.sodaProgressBar.Name = "sodaProgressBar";
 			this.sodaProgressBar.Size = new System.Drawing.Size(145, 23);
 			this.sodaProgressBar.TabIndex = 12;
@@ -129,7 +132,7 @@
 			// beerBuffer
 			// 
 			this.beerBuffer.FormattingEnabled = true;
-			this.beerBuffer.Location = new System.Drawing.Point(176, 75);
+			this.beerBuffer.Location = new System.Drawing.Point(479, 75);
 			this.beerBuffer.Name = "beerBuffer";
 			this.beerBuffer.Size = new System.Drawing.Size(145, 329);
 			this.beerBuffer.TabIndex = 14;
@@ -137,16 +140,43 @@
 			// sodaBuffer
 			// 
 			this.sodaBuffer.FormattingEnabled = true;
-			this.sodaBuffer.Location = new System.Drawing.Point(340, 75);
+			this.sodaBuffer.Location = new System.Drawing.Point(643, 75);
 			this.sodaBuffer.Name = "sodaBuffer";
 			this.sodaBuffer.Size = new System.Drawing.Size(145, 329);
 			this.sodaBuffer.TabIndex = 15;
+			// 
+			// SplitterBuffer
+			// 
+			this.SplitterBuffer.FormattingEnabled = true;
+			this.SplitterBuffer.Location = new System.Drawing.Point(241, 75);
+			this.SplitterBuffer.Name = "SplitterBuffer";
+			this.SplitterBuffer.Size = new System.Drawing.Size(145, 329);
+			this.SplitterBuffer.TabIndex = 18;
+			// 
+			// SpiltterProgressBar
+			// 
+			this.SpiltterProgressBar.Location = new System.Drawing.Point(241, 415);
+			this.SpiltterProgressBar.Name = "SpiltterProgressBar";
+			this.SpiltterProgressBar.Size = new System.Drawing.Size(145, 23);
+			this.SpiltterProgressBar.TabIndex = 17;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(238, 59);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(39, 13);
+			this.label2.TabIndex = 16;
+			this.label2.Text = "Splitter";
 			// 
 			// FlaskeautomatenForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.SplitterBuffer);
+			this.Controls.Add(this.SpiltterProgressBar);
+			this.Controls.Add(this.label2);
 			this.Controls.Add(this.sodaBuffer);
 			this.Controls.Add(this.beerBuffer);
 			this.Controls.Add(this.producerBuffer);
@@ -180,6 +210,9 @@
         private System.Windows.Forms.ListBox producerBuffer;
         private System.Windows.Forms.ListBox beerBuffer;
         private System.Windows.Forms.ListBox sodaBuffer;
-    }
+		private System.Windows.Forms.ListBox SplitterBuffer;
+		private System.Windows.Forms.ProgressBar SpiltterProgressBar;
+		private System.Windows.Forms.Label label2;
+	}
 }
 

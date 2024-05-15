@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace H2_Assigment_FlaskeAutomaten.View
 {
-    public class MachineBuffer
+    internal class MachineBuffer
     {
         private ListBox _listBoxBeverages;
         private ProgressBar _beverageListProgress;
@@ -19,7 +19,7 @@ namespace H2_Assigment_FlaskeAutomaten.View
             _beverageListProgress = beverageListProgress;
         }
 
-        public void AddBeverage(Beverage beverage)
+        internal void AddBeverage(Beverage beverage)
         {
             if(_listBoxBeverages.Items.Count >= _beverageListProgress.Maximum)
             {
@@ -29,7 +29,7 @@ namespace H2_Assigment_FlaskeAutomaten.View
             _beverageListProgress.Value++;
         }
 
-        public void RemoveBeverage(Beverage beverage)
+        internal void RemoveBeverage(Beverage beverage)
         {
             if (!_listBoxBeverages.Items.Contains(beverage.Name))
             {
@@ -40,7 +40,6 @@ namespace H2_Assigment_FlaskeAutomaten.View
                 _listBoxBeverages.Items.Remove(beverage.Name);
                 _beverageListProgress.Value--;
             }
-            
         }
     }
 }

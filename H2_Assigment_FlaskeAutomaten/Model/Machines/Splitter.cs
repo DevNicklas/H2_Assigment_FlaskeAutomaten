@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using H2_Assigment_FlaskeAutomaten.View;
 
 namespace H2_Assigment_FlaskeAutomaten.Model.Machines
 {

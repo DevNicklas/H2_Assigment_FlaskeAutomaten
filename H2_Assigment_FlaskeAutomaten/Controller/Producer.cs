@@ -24,12 +24,12 @@ namespace H2_Assigment_FlaskeAutomaten.Controller
 
         private void OnAddBeerBtnClick(object sender, EventArgs e)
         {
-            Main.inputConveyor.AddToInventory(new Beer(10));
+            Main.InputConveyor.AddToInventory(new Beer(10));
         }
 
         private void OnAddSodaBtnClick(object sender, EventArgs e)
         {
-            Main.inputConveyor.AddToInventory(new Soda(100));
+            Main.InputConveyor.AddToInventory(new Soda(100));
         }
     }
 }

@@ -6,39 +6,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace H2_Assigment_FlaskeAutomaten.Model
+namespace H2_Assigment_FlaskeAutomaten.View
 {
     public class ConveyorBuffer
     {
         private ListBox _listBoxBeverages;
         private ProgressBar _beverageListProgress;
-        private readonly uint _maxBeverages;
 
-        internal ConveyorBuffer(ListBox listBoxBeverages, ProgressBar beverageListProgress, uint maxBeverages)
+        internal ConveyorBuffer(ListBox listBoxBeverages, ProgressBar beverageListProgress)
         {
             _listBoxBeverages = listBoxBeverages;
             _beverageListProgress = beverageListProgress;
-            _maxBeverages = maxBeverages;
         }
 
         public void AddBeverage(Beverage beverage)
         {
-            if(_listBoxBeverages.Items.Count >= _maxBeverages)
+            if(_listBoxBeverages.Items.Count >= _beverageListProgress.Maximum)
+            {
+                throw new NotImplementedException();
+            }
+            _listBoxBeverages.Items.Add(beverage.Name);
+            _beverageListProgress.Value++;
+        }
+
+        public void RemoveBeverage(Beverage beverage)
+        {
+            if (!_listBoxBeverages.Items.Contains(beverage.Name))
             {
                 throw new NotImplementedException();
             }
             else
             {
-                _listBoxBeverages.Items.Add(beverage.Name);
-            }
-        }
-
-        public void RemoveBeverage(Beverage beverage)
-        {
-            if (_listBoxBeverages.Items.Contains(beverage.Name))
-            {
                 _listBoxBeverages.Items.Remove(beverage.Name);
+                _beverageListProgress.Value--;
             }
+            
         }
     }
 }

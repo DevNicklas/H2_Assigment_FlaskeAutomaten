@@ -98,6 +98,7 @@
             // producerProgressBar
             // 
             this.producerProgressBar.Location = new System.Drawing.Point(10, 415);
+            this.producerProgressBar.Maximum = 10;
             this.producerProgressBar.Name = "producerProgressBar";
             this.producerProgressBar.Size = new System.Drawing.Size(145, 23);
             this.producerProgressBar.TabIndex = 10;
@@ -105,6 +106,7 @@
             // beerProgressBar
             // 
             this.beerProgressBar.Location = new System.Drawing.Point(176, 415);
+            this.beerProgressBar.Maximum = 10;
             this.beerProgressBar.Name = "beerProgressBar";
             this.beerProgressBar.Size = new System.Drawing.Size(145, 23);
             this.beerProgressBar.TabIndex = 11;
@@ -112,6 +114,7 @@
             // sodaProgressBar
             // 
             this.sodaProgressBar.Location = new System.Drawing.Point(340, 415);
+            this.sodaProgressBar.Maximum = 10;
             this.sodaProgressBar.Name = "sodaProgressBar";
             this.sodaProgressBar.Size = new System.Drawing.Size(145, 23);
             this.sodaProgressBar.TabIndex = 12;

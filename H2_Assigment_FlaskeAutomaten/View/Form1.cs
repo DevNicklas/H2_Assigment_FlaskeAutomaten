@@ -1,4 +1,4 @@
-﻿using H2_Assigment_FlaskeAutomaten.Model;
+﻿using H2_Assigment_FlaskeAutomaten.View;
 using H2_Assigment_FlaskeAutomaten.Model.Beverages;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace H2_Assigment_FlaskeAutomaten
         {
             InitializeComponent();
 
-            ConveyorBuffer buffer = new ConveyorBuffer(producerBuffer, producerProgressBar, 10);
+            ConveyorBuffer buffer = new ConveyorBuffer(producerBuffer, producerProgressBar);
 
             Soda soda = new Soda(20);
 
